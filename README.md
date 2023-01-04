@@ -1,2 +1,2 @@
 # middleware-demo
-work in progress aplication.
+work in progress application.
