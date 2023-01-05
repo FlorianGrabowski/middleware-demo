@@ -21,7 +21,7 @@ public class AccountController {
     /**
      * GET
      *
-     * @return existing products
+     * @return existing Account
      */
     @GetMapping(path = "/{accountId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AccountModel> getAccountById(@PathVariable long accountId) throws Exception {
