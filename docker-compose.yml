@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+
+  finance-api-service:
+    build: ./finance-planner-api
+    image: ghcr.io/floriangrabowski/middleware-demo/finance-planner-api:latest
+    container_name: finance-planner-api
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/finance_db?createDatabaseIfNotExist=true
+    ports:
+      - "8080:8080"
+
+  finance-ui-service:
+    build: ./finance-planner-ui
+    image: ghcr.io/floriangrabowski/middleware-demo/finance-planner-ui:latest
+    container_name: finance-planner-ui
+    restart: always
+    depends_on:
+      - finance-api-service
+    ports:
+      - "4200:80"
+
+  mysql:
+    image: mysql:8.0.31
+    container_name: mysql
+    restart: on-failure
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql:
