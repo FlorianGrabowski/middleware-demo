@@ -2,7 +2,9 @@ package com.financeplanner.api.controller.model;
 
 import com.financeplanner.api.database.entity.AccountEntity;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Data
 public class AccountModel {
     private Long id;

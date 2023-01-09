@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/account")
 @RestController
 public class AccountController {
@@ -28,8 +29,8 @@ public class AccountController {
         return ResponseEntity.ok(new AccountModel(accountService.getAccount(accountId)));
     }
 
-    @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AccountModel> addAccount(@RequestBody String name) {
-        return ResponseEntity.ok(new AccountModel(accountService.insertAccount(name)));
+    @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AccountModel> addAccount(@RequestBody AccountModel accountWithName) {
+        return ResponseEntity.ok(new AccountModel(accountService.insertAccount(accountWithName.getName())));
     }
 }

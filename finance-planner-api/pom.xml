@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>de.hft-stuttgart._21grfl1mst</groupId>
 	<artifactId>finance-planner-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>finance-planner-api</name>
 	<description>finance-planner-api</description>
 	<properties>
