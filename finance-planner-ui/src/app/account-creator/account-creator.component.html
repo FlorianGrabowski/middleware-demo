@@ -1,0 +1,10 @@
+<div>
+  <div>account-creator works!</div>
+  <div class="grid">
+    <mat-form-field appearance="fill">
+      <mat-label>Name the new Account?</mat-label>
+      <input [(ngModel)]="name" matInput>
+    </mat-form-field>
+    <button (click)="addAccount()" color="accent" mat-raised-button>Primary</button>
+  </div>
+</div>
